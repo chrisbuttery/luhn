@@ -1,0 +1,9 @@
+{
+  "name": "luhn",
+  "repo": "chrisbuttery/luhn",
+  "description": "A Luhn (mod 10) algorithm component",
+  "version": "0.0.1",
+  "dependencies": {},
+  "scripts": ["index.js"],
+  "main": "index.js"
+}
