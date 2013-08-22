@@ -12,7 +12,7 @@
 
 	var luhn = require('luhn');
 
-	luhn.validate('4111111111111111'); 
+	luhn.validate('4111111111111111'); // it's soooo valid right now
 
 ## License
 
