@@ -1,6 +1,6 @@
 # luhn
 
-  A Luhn (mod 10) algorithm component for credit card number validation.
+  A [Luhn (mod 10) algorithm](http://en.wikipedia.org/wiki/Luhn_algorithm) component for credit card number validation.
 
   Returns a boolean value.
 
