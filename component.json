@@ -1,9 +1,14 @@
 {
   "name": "luhn",
   "repo": "chrisbuttery/luhn",
-  "description": "A Luhn (mod 10) algorithm component.",
-  "version": "0.0.1",
-  "keywords": [],
+  "description": "A Luhn (mod 10) algorithm module for credit card number validation.",
+  "version": "1.0.0",
+  "keywords": [
+    "luhn",
+    "creditcard",
+    "validation",
+    "mod10"
+  ],
   "dependencies": {},
   "development": {},
   "license": "MIT",

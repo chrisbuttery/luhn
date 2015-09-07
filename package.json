@@ -1,0 +1,38 @@
+{
+  "name": "node-luhn",
+  "version": "1.0.0",
+  "description": "A Luhn (mod 10) algorithm module for credit card number validation.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "coveralls": "^2.11.4",
+    "faucet": "0.0.1",
+    "istanbul": "^0.3.19",
+    "standard": "^5.2.1",
+    "tape": "^4.2.0"
+  },
+  "scripts": {
+    "test": "node test | faucet",
+    "posttest": "standard *.js test/*.js",
+    "test-cov": "standard *.js text/*.js && istanbul cover test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chrisbuttery/luhn.git"
+  },
+  "keywords": [
+    "luhn",
+    "creditcard",
+    "validation",
+    "mod10"
+  ],
+  "author": "Chris Buttery <info@chrisbuttery.com> (http://www.chrisbuttery.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chrisbuttery/luhn/issues"
+  },
+  "homepage": "https://github.com/chrisbuttery/luhn"
+}

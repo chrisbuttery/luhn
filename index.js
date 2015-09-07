@@ -1,46 +1,82 @@
-var validate = function (cardNumber){
+// regex
+var pattern = /^[0-9]+$/
 
-  var trimmed = cardNumber.trim(),
-    length = trimmed.length,
-    cardNum = parseInt(trimmed, 10),
-    total = 0,
-    calc,
-    calc2;
+/**
+ * [isNaN description]
+ * @param  {[type]}  num [description]
+ * @return {Boolean}     [description]
+ */
 
-  if (length === 0){
-    return true;
+function isNotANumber (num) {
+  return (isNaN(num) || !pattern.test(num))
+}
+
+/**
+ * [exports description]
+ * @param  {[type]} cardNumber [description]
+ * @return {[type]}            [description]
+ */
+
+module.exports = function (cardNumber) {
+  if (!cardNumber) return
+  if (typeof (cardNumber) !== 'string') {
+    cardNumber = String(cardNumber)
   }
 
-  if (isNaN(cardNum) || !/^[0-9]+$/.test(trimmed)) {
-    return false;
-  }
+  // trim the string and validate it has length
+  var trimmed = cardNumber.trim()
+  var trimmedLength = trimmed.length
+  if (trimmedLength === 0) return
 
-  // traverse through card digits starting for the most right
-  for (var i = length; i > 0; i--) {
-    calc = Math.floor(cardNum) % 10; // right most calc
-    total += calc;
-    cardNum = cardNum / 10; // move decimal
+  // parse the string to an int and validate it's a number
+  var cardNum = parseInt(trimmed, 10)
+  if (isNotANumber(cardNum)) return
 
-    calc = Math.floor(cardNum) % 10; // the next right most calc
-    calc2 = calc * 2;
+  var total = 0
+  var calc1
+  var calc2
+
+  // traverse through card digits
+  // starting from  the most right
+  for (var i = trimmedLength; i > 0; i--) {
+    // right most digit
+    calc1 = Math.floor(cardNum) % 10
+    total += calc1
+
+    // move the decimal
+    cardNum = cardNum / 10
+
+    // the next right most digit
+    calc1 = Math.floor(cardNum) % 10
+    calc2 = calc1 * 2
 
     switch (calc2) {
-      case 10: calc2 = 1; break;
-      case 12: calc2 = 3; break;
-      case 14: calc2 = 5; break;
-      case 16: calc2 = 7; break;
-      case 18: calc2 = 9; break;
-      default: calc2 = calc2;
+      case 10:
+        calc2 = 1
+        break
+      case 12:
+        calc2 = 3
+        break
+      case 14:
+        calc2 = 5
+        break
+      case 16:
+        calc2 = 7
+        break
+      case 18:
+        calc2 = 9
+        break
+      default:
+        calc2 = calc2
     }
 
-    cardNum = cardNum / 10; // move decimal
-    total += calc2;
-    i--;
+    // move decimal
+    cardNum = cardNum / 10
+
+    total += calc2
+    i--
   }
 
-  return ((total % 10) === 0);
-};
-
-module.exports = {
-  validate: validate
-};
+  // return a boolean
+  return ((total % 10) === 0)
+}
